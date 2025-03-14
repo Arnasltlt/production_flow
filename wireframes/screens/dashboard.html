@@ -1,0 +1,104 @@
+<div class="header">
+    <h1>Dashboard</h1>
+    <button class="btn" onclick="navigateTo('newOrder')">New Production Order</button>
+</div>
+
+<div class="flex-container">
+    <div class="flex-column">
+        <div class="card">
+            <h2>Active Orders</h2>
+            <div class="flex-container" style="margin-top: 20px;">
+                <div class="flex-column">
+                    <h3>8</h3>
+                    <p>In Progress</p>
+                </div>
+                <div class="flex-column">
+                    <h3>3</h3>
+                    <p>Late</p>
+                </div>
+                <div class="flex-column">
+                    <h3>5</h3>
+                    <p>Due This Week</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>Recent Orders</h2>
+        <div class="grid-container">
+            <div class="card order-card" data-order-id="1082">
+                <div style="display: flex; justify-content: space-between;">
+                    <h3>Order #1082</h3>
+                    <span class="status-badge status-review">Quote Review</span>
+                </div>
+                <p><strong>Custom Enclosures</strong></p>
+                <p><strong>Due:</strong> April 15, 2025 (30 days)</p>
+                <div class="progress-bar" data-progress="15">
+                    <div class="progress-bar-fill" style="width: 15%"></div>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+                    <span><strong>Priority:</strong> <span class="priority-medium">Medium</span></span>
+                    <span><strong>Progress:</strong> 15%</span>
+                </div>
+            </div>
+            
+            <div class="card order-card" data-order-id="1079">
+                <div style="display: flex; justify-content: space-between;">
+                    <h3>Order #1079</h3>
+                    <span class="status-badge status-production">In Production</span>
+                </div>
+                <p><strong>PCB Assembly</strong></p>
+                <p><strong>Due:</strong> March 25, 2025 (10 days)</p>
+                <div class="progress-bar" data-progress="60">
+                    <div class="progress-bar-fill" style="width: 60%"></div>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+                    <span><strong>Priority:</strong> <span class="priority-high">High</span></span>
+                    <span><strong>Progress:</strong> 60%</span>
+                </div>
+            </div>
+            
+            <div class="card order-card" data-order-id="1075">
+                <div style="display: flex; justify-content: space-between;">
+                    <h3>Order #1075</h3>
+                    <span class="status-badge status-quote">Awaiting Quote</span>
+                </div>
+                <p><strong>Injection Molded Parts</strong></p>
+                <p><strong>Due:</strong> April 30, 2025 (45 days)</p>
+                <div class="progress-bar" data-progress="5">
+                    <div class="progress-bar-fill" style="width: 5%"></div>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+                    <span><strong>Priority:</strong> <span class="priority-low">Low</span></span>
+                    <span><strong>Progress:</strong> 5%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="flex-column">
+        <div class="card">
+            <h2>Order Statistics</h2>
+            <div class="placeholder-box">
+                Chart: Orders by Status (Future Enhancement)
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>Production Timeline</h2>
+            <div class="placeholder-box" style="height: 200px;">
+                Gantt Chart: Order Timeline (Future Enhancement)
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>Recent Activity</h2>
+            <ul style="padding-left: 20px;">
+                <li><strong>Today 10:45 AM</strong> - Quote received for Order #1082</li>
+                <li><strong>Yesterday 3:20 PM</strong> - Order #1079 moved to production phase</li>
+                <li><strong>Mar 8, 2025</strong> - New quote request created for Order #1075</li>
+                <li><strong>Mar 7, 2025</strong> - Order #1071 production milestone reached: 45%</li>
+                <li><strong>Mar 6, 2025</strong> - Supplier feedback submitted for Order #1065</li>
+            </ul>
+        </div>
+    </div>
+</div>

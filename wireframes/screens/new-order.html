@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Hub - New Order</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="flex h-screen">
+        <!-- Include Sidebar -->
+        <div class="w-64 bg-gray-800 text-white p-4">
+            <h1 class="text-xl font-bold mb-6">Control Hub</h1>
+            <ul>
+                <li class="mb-2"><a href="/wireframes/screens/orders.html" class="block py-2 px-4 hover:bg-gray-700 rounded">Orders</a></li>
+                <li class="mb-2"><a href="/wireframes/screens/new-order.html" class="block py-2 px-4 bg-blue-600 rounded">New Order</a></li>
+                <li class="mb-2"><a href="/wireframes/screens/supplier-hub.html" class="block py-2 px-4 hover:bg-gray-700 rounded">Supplier Hub</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 p-6 overflow-auto">
+            <div class="max-w-5xl mx-auto bg-white shadow-md rounded-lg overflow-hidden">
+                <!-- Progress Steps -->
+                <div class="bg-gray-50 border-b p-4">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center">
+                            <div class="flex flex-col items-center">
+                                <div class="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">1</div>
+                                <span class="text-sm mt-1">Basic Info</span>
+                            </div>
+                            <div class="h-1 w-12 bg-blue-200 mx-2"></div>
+                            <div class="flex flex-col items-center">
+                                <div class="w-8 h-8 bg-gray-300 text-white rounded-full flex items-center justify-center font-bold">2</div>
+                                <span class="text-sm mt-1">Requirements</span>
+                            </div>
+                            <div class="h-1 w-12 bg-gray-300 mx-2"></div>
+                            <div class="flex flex-col items-center">
+                                <div class="w-8 h-8 bg-gray-300 text-white rounded-full flex items-center justify-center font-bold">3</div>
+                                <span class="text-sm mt-1">Supplier</span>
+                            </div>
+                            <div class="h-1 w-12 bg-gray-300 mx-2"></div>
+                            <div class="flex flex-col items-center">
+                                <div class="w-8 h-8 bg-gray-300 text-white rounded-full flex items-center justify-center font-bold">4</div>
+                                <span class="text-sm mt-1">Review</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Content -->
+                <div class="p-6">
+                    <h1 class="text-2xl font-bold mb-6">Create New Production Order</h1>
+                    
+                    <!-- Step 1: General Information (Always Visible) -->
+                    <div class="mb-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-xl font-semibold">General Information</h2>
+                            <button type="button" class="text-blue-600 hover:text-blue-800" onclick="toggleSection('generalInfoCollapse')">
+                                <span id="generalInfoCollapseIcon">−</span>
+                            </button>
+                        </div>
+                        <div id="generalInfoCollapse" class="transition-all duration-200">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <label class="block text-gray-700 mb-1">Customer Name <span class="text-red-500">*</span></label>
+                                    <select class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500">
+                                        <option>Select customer</option>
+                                        <option>Acme Corp</option>
+                                        <option>Globex Industries</option>
+                                        <option>XYZ Manufacturing</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 mb-1">Project Name <span class="text-red-500">*</span></label>
+                                    <input type="text" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500">
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <label class="block text-gray-700 mb-1">Industry</label>
+                                    <select class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500">
+                                        <option>Select industry</option>
+                                        <option>Aerospace</option>
+                                        <option>Automotive</option>
+                                        <option>Medical</option>
+                                        <option>Consumer Electronics</option>
+                                        <option>Industrial Equipment</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 mb-1">Design Phase</label>
+                                    <select class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500">
+                                        <option>Select phase</option>
+                                        <option>Prototyping</option>
+                                        <option>Early Production</option>
+                                        <option>Scaling Production</option>
+                                        <option>Replacing Previous Vendor</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-1">Part Use / Design Intent</label>
+                                <textarea class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500" rows="2"></textarea>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-1">Material Flexibility</label>
+                                <select class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500">
+                                    <option>Select flexibility</option>
+                                    <option>Strict - No material substitutions</option>
+                                    <option>Moderate - Similar materials acceptable</option>
+                                    <option>Flexible - Open to alternatives</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 1: Compliance & Legal Agreements (Collapsible) -->
+                    <div class="mb-8 border-t pt-4">
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-xl font-semibold">Compliance & Legal Agreements</h2>
+                            <button type="button" class="text-blue-600 hover:text-blue-800" onclick="toggleSection('complianceCollapse')">
+                                <span id="complianceCollapseIcon">+</span>
+                            </button>
+                        </div>
+                        <div id="complianceCollapse" class="hidden transition-all duration-200">
+                            <div class="grid grid-cols-1 gap-4 mb-4">
+                                <div class="flex items-start">
+                                    <input type="checkbox" id="nca" class="mt-1">
+                                    <label for="nca" class="ml-2 block text-gray-700">Non-circumvention agreement required</label>
+                                </div>
+                                <div class="flex items-start">
+                                    <input type="checkbox" id="mpProfile" class="mt-1">
+                                    <label for="mpProfile" class="ml-2 block text-gray-700">MP profile required</label>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 mb-1">Export Control Requirements</label>
+                                    <select class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500">
+                                        <option>None</option>
+                                        <option>ITAR</option>
+                                        <option>EAR</option>
+                                        <option>Other (specify in notes)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 mb-1">Additional Compliance Notes</label>
+                                    <textarea class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500" rows="2"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 1: Downpayment & Finance (Collapsible) -->
+                    <div class="mb-8 border-t pt-4">
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-xl font-semibold">Downpayment & Finance</h2>
+                            <button type="button" class="text-blue-600 hover:text-blue-800" onclick="toggleSection('financeCollapse')">
+                                <span id="financeCollapseIcon">+</span>
+                            </button>
+                        </div>
+                        <div id="financeCollapse" class="hidden transition-all duration-200">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <label class="block text-gray-700 mb-1">Pay Later Terms</label>
+                                    <select class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500">
+                                        <option>Standard payment terms</option>
+                                        <option>Net 30</option>
+                                        <option>Net 60</option>
+                                        <option>Net 90</option>
+                                        <option>Custom (specify in notes)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 mb-1">Downpayment Required</label>
+                                    <select class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500">
+                                        <option>None</option>
+                                        <option>25%</option>
+                                        <option>50%</option>
+                                        <option>Other percentage</option>
+                                        <option>Fixed amount</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div class="flex items-start">
+                                    <input type="checkbox" id="fixedMaterial" class="mt-1">
+                                    <label for="fixedMaterial" class="ml-2 block text-gray-700">Fixed material pricing (Restrictions on bulk material purchasing)</label>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 mb-1">Sample Costs</label>
+                                    <select class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500">
+                                        <option>Standard</option>
+                                        <option>Waived</option>
+                                        <option>Custom pricing</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 1: Contract Manufacturing (Collapsible) -->
+                    <div class="mb-8 border-t pt-4">
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-xl font-semibold">Contract Manufacturing</h2>
+                            <button type="button" class="text-blue-600 hover:text-blue-800" onclick="toggleSection('contractCollapse')">
+                                <span id="contractCollapseIcon">+</span>
+                            </button>
+                        </div>
+                        <div id="contractCollapse" class="hidden transition-all duration-200">
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-1">Long Term Production Forecast</label>
+                                <textarea class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500" rows="2" placeholder="Describe expected production volumes and timeline"></textarea>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <label class="block text-gray-700 mb-1">Fixed Pricing Period</label>
+                                    <select class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500">
+                                        <option>Not required</option>
+                                        <option>3 months</option>
+                                        <option>6 months</option>
+                                        <option>12 months</option>
+                                        <option>Custom period</option>
+                                    </select>
+                                </div>
+                                <div class="flex items-start">
+                                    <input type="checkbox" id="terminationClause" class="mt-1">
+                                    <label for="terminationClause" class="ml-2 block text-gray-700">Production Termination Clause (Pricing adjustments for early termination)</label>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-1">Dispute Window</label>
+                                <select class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500">
+                                    <option>Standard</option>
+                                    <option>Extended (specify in notes)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- File Upload Section -->
+                    <div class="mb-8 border-t pt-4">
+                        <h2 class="text-xl font-semibold mb-4">Technical Documentation</h2>
+                        <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center mb-4">
+                            <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                            </svg>
+                            <p class="mt-1 text-sm text-gray-600">Drag and drop files here, or click to browse</p>
+                            <p class="mt-1 text-xs text-gray-500">Upload CAD files, drawings, specifications, and other relevant documents</p>
+                            <button class="mt-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 focus:outline-none">Browse Files</button>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <h3 class="font-semibold text-gray-700 mb-2">Uploaded Files</h3>
+                            <div class="space-y-2">
+                                <!-- Example uploaded file -->
+                                <div class="flex items-center justify-between bg-white p-2 rounded border">
+                                    <div class="flex items-center">
+                                        <svg class="h-5 w-5 text-gray-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span>Part_123_Drawing.pdf</span>
+                                    </div>
+                                    <button class="text-red-500 hover:text-red-700">
+                                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Line Items Section (Auto-Populated) -->
+                    <div class="mb-8 border-t pt-4">
+                        <h2 class="text-xl font-semibold mb-4">Order Line Items (Auto-Populated)</h2>
+                        <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                            <!-- Pre-populated line item 1 -->
+                            <div class="border border-gray-200 p-3 rounded-lg mb-4 bg-white">
+                                <div class="flex justify-between items-center mb-2">
+                                    <div class="flex items-center">
+                                        <h3 class="font-semibold">Enclosure Housing - AL6061-001</h3>
+                                        <span class="ml-2 bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full">Rev B</span>
+                                        <button class="ml-2 text-blue-600 hover:text-blue-800 text-xs flex items-center" onclick="toggleDrawing('drawing1')">
+                                            <svg class="h-4 w-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                            </svg>
+                                            View Drawing
+                                        </button>
+                                    </div>
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">CNC Machining</span>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-2 text-sm">
+                                    <div>
+                                        <span class="text-gray-500">Material:</span>
+                                        <span class="ml-1">Aluminum 6061</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-gray-500">Quantity:</span>
+                                        <span class="ml-1">10 units</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-gray-500">Required by:</span>
+                                        <span class="ml-1">Mar 30, 2025</span>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-gray-600 mb-2">Note: Tight tolerance on mounting holes (±0.001")</p>
+                                
+                                <!-- Technical Drawing Details (Hidden by Default) -->
+                                <div id="drawing1" class="hidden mt-3 border-t pt-3">
+                                    <div class="flex">
+                                        <div class="w-1/3 pr-4 border-r">
+                                            <div class="bg-gray-50 p-2 rounded mb-2">
+                                                <img src="https://via.placeholder.com/300x200?text=Technical+Drawing" class="w-full h-auto border rounded" alt="Technical Drawing"/>
+                                            </div>
+                                            <div class="flex items-center justify-between text-xs">
+                                                <span>AL6061-001_Rev_B.pdf</span>
+                                                <button class="text-blue-600 hover:underline">Download</button>
+                                            </div>
+                                        </div>
+                                        <div class="w-2/3 pl-4">
+                                            <h4 class="font-medium text-sm mb-2">Specifications from Drawing</h4>
+                                            <div class="grid grid-cols-2 gap-3 text-xs">
+                                                <div class="bg-blue-50 p-2 rounded">
+                                                    <span class="font-medium block">Overall Dimensions:</span>
+                                                    <span>120mm × 80mm × 15mm</span>
+                                                </div>
+                                                <div class="bg-blue-50 p-2 rounded">
+                                                    <span class="font-medium block">Surface Finish:</span>
+                                                    <span>32 μin Ra on exterior faces</span>
+                                                </div>
+                                                <div class="bg-blue-50 p-2 rounded">
+                                                    <span class="font-medium block">Tolerances:</span>
+                                                    <span>±0.001" on mounting holes</span>
+                                                    <span class="block">±0.005" on all other dimensions</span>
+                                                </div>
+                                                <div class="bg-blue-50 p-2 rounded">
+                                                    <span class="font-medium block">Post-Processing:</span>
+                                                    <span>Type II anodizing, clear</span>
+                                                    <span class="block">Laser marking on bottom face</span>
+                                                </div>
+                                                <div class="bg-blue-50 p-2 rounded">
+                                                    <span class="font-medium block">Critical Features:</span>
+                                                    <span>4 × M3 mounting holes</span>
+                                                    <span class="block">Precision slot for PCB mounting</span>
+                                                </div>
+                                                <div class="bg-blue-50 p-2 rounded">
+                                                    <span class="font-medium block">Notes:</span>
+                                                    <span>Deburr all edges</span>
+                                                    <span class="block">No visible machining marks allowed</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Pre-populated line item 2 -->
+                            <div class="border border-gray-200 p-3 rounded-lg mb-4 bg-white">
+                                <div class="flex justify-between items-center mb-2">
+                                    <div class="flex items-center">
+                                        <h3 class="font-semibold">Support Bracket - SS304-B22</h3>
+                                        <span class="ml-2 bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full">Rev A</span>
+                                        <button class="ml-2 text-blue-600 hover:text-blue-800 text-xs flex items-center" onclick="toggleDrawing('drawing2')">
+                                            <svg class="h-4 w-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                            </svg>
+                                            View Drawing
+                                        </button>
+                                    </div>
+                                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Sheet Metal</span>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-2 text-sm">
+                                    <div>
+                                        <span class="text-gray-500">Material:</span>
+                                        <span class="ml-1">Stainless Steel 304</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-gray-500">Quantity:</span>
+                                        <span class="ml-1">25 units</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-gray-500">Required by:</span>
+                                        <span class="ml-1">Apr 15, 2025</span>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-gray-600 mb-2">Note: 2mm thickness, brush finish required</p>
+                                
+                                <!-- Technical Drawing Details (Hidden by Default) -->
+                                <div id="drawing2" class="hidden mt-3 border-t pt-3">
+                                    <div class="flex">
+                                        <div class="w-1/3 pr-4 border-r">
+                                            <div class="bg-gray-50 p-2 rounded mb-2">
+                                                <img src="https://via.placeholder.com/300x200?text=Technical+Drawing" class="w-full h-auto border rounded" alt="Technical Drawing"/>
+                                            </div>
+                                            <div class="flex items-center justify-between text-xs">
+                                                <span>SS304-B22_Rev_A.pdf</span>
+                                                <button class="text-blue-600 hover:underline">Download</button>
+                                            </div>
+                                        </div>
+                                        <div class="w-2/3 pl-4">
+                                            <h4 class="font-medium text-sm mb-2">Specifications from Drawing</h4>
+                                            <div class="grid grid-cols-2 gap-3 text-xs">
+                                                <div class="bg-green-50 p-2 rounded">
+                                                    <span class="font-medium block">Material Thickness:</span>
+                                                    <span>2.0mm ± 0.1mm</span>
+                                                </div>
+                                                <div class="bg-green-50 p-2 rounded">
+                                                    <span class="font-medium block">Surface Finish:</span>
+                                                    <span>#4 brush finish on all visible surfaces</span>
+                                                </div>
+                                                <div class="bg-green-50 p-2 rounded">
+                                                    <span class="font-medium block">Bend Radius:</span>
+                                                    <span>Internal radius: 2.0mm minimum</span>
+                                                </div>
+                                                <div class="bg-green-50 p-2 rounded">
+                                                    <span class="font-medium block">Overall Dimensions:</span>
+                                                    <span>90mm × 60mm × 35mm (after forming)</span>
+                                                </div>
+                                                <div class="bg-green-50 p-2 rounded">
+                                                    <span class="font-medium block">Features:</span>
+                                                    <span>6 × 5mm mounting holes</span>
+                                                    <span class="block">2 × M4 tapped holes</span>
+                                                </div>
+                                                <div class="bg-green-50 p-2 rounded">
+                                                    <span class="font-medium block">Notes:</span>
+                                                    <span>Deburr all edges</span>
+                                                    <span class="block">Passivate after fabrication</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Pre-populated line item 3 -->
+                            <div class="border border-gray-200 p-3 rounded-lg mb-2 bg-white">
+                                <div class="flex justify-between items-center mb-2">
+                                    <div class="flex items-center">
+                                        <h3 class="font-semibold">Connector Housing - POM-C10</h3>
+                                        <span class="ml-2 bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full">Rev C</span>
+                                        <button class="ml-2 text-blue-600 hover:text-blue-800 text-xs flex items-center" onclick="toggleDrawing('drawing3')">
+                                            <svg class="h-4 w-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                            </svg>
+                                            View Drawing
+                                        </button>
+                                    </div>
+                                    <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Injection Molding</span>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-2 text-sm">
+                                    <div>
+                                        <span class="text-gray-500">Material:</span>
+                                        <span class="ml-1">Delrin/POM</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-gray-500">Quantity:</span>
+                                        <span class="ml-1">100 units</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-gray-500">Required by:</span>
+                                        <span class="ml-1">Apr 22, 2025</span>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-gray-600">Note: UL94 V-0 rating required</p>
+                                
+                                <!-- Technical Drawing Details (Hidden by Default) -->
+                                <div id="drawing3" class="hidden mt-3 border-t pt-3">
+                                    <div class="flex">
+                                        <div class="w-1/3 pr-4 border-r">
+                                            <div class="bg-gray-50 p-2 rounded mb-2">
+                                                <img src="https://via.placeholder.com/300x200?text=Technical+Drawing" class="w-full h-auto border rounded" alt="Technical Drawing"/>
+                                            </div>
+                                            <div class="flex items-center justify-between text-xs">
+                                                <span>POM-C10_Rev_C.pdf</span>
+                                                <button class="text-blue-600 hover:underline">Download</button>
+                                            </div>
+                                        </div>
+                                        <div class="w-2/3 pl-4">
+                                            <h4 class="font-medium text-sm mb-2">Specifications from Drawing</h4>
+                                            <div class="grid grid-cols-2 gap-3 text-xs">
+                                                <div class="bg-purple-50 p-2 rounded">
+                                                    <span class="font-medium block">Material Requirements:</span>
+                                                    <span>Delrin/POM, UL94 V-0 rated</span>
+                                                    <span class="block">Black color, natural finish</span>
+                                                </div>
+                                                <div class="bg-purple-50 p-2 rounded">
+                                                    <span class="font-medium block">Overall Dimensions:</span>
+                                                    <span>45mm × 30mm × 15mm</span>
+                                                </div>
+                                                <div class="bg-purple-50 p-2 rounded">
+                                                    <span class="font-medium block">Gate Location:</span>
+                                                    <span>Bottom face, non-visible in assembly</span>
+                                                </div>
+                                                <div class="bg-purple-50 p-2 rounded">
+                                                    <span class="font-medium block">Wall Thickness:</span>
+                                                    <span>2.0mm nominal, 1.5mm minimum</span>
+                                                </div>
+                                                <div class="bg-purple-50 p-2 rounded">
+                                                    <span class="font-medium block">Critical Features:</span>
+                                                    <span>Snap fits (0.5mm undercut)</span>
+                                                    <span class="block">4 × brass inserts (post-mold)</span>
+                                                </div>
+                                                <div class="bg-purple-50 p-2 rounded">
+                                                    <span class="font-medium block">Notes:</span>
+                                                    <span>No sink marks allowed on Class A surfaces</span>
+                                                    <span class="block">Part number to be molded into bottom surface</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex justify-between mt-3">
+                                <span class="text-sm text-gray-600 italic">* Line items automatically imported from your CAD package</span>
+                                <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded hover:bg-gray-300 focus:outline-none text-sm">Edit Line Items</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation Buttons -->
+                    <div class="flex justify-between items-center mt-8 pt-4 border-t">
+                        <a href="/wireframes/screens/orders.html" class="px-6 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400 focus:outline-none">Cancel</a>
+                        <a href="/wireframes/screens/requirements.html" class="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 focus:outline-none">Continue to Requirements</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            const iconSpan = document.getElementById(sectionId + 'Icon');
+            
+            if (section.classList.contains('hidden')) {
+                section.classList.remove('hidden');
+                iconSpan.textContent = '−';
+            } else {
+                section.classList.add('hidden');
+                iconSpan.textContent = '+';
+            }
+        }
+        
+        function toggleDrawing(drawingId) {
+            const drawingSection = document.getElementById(drawingId);
+            if (drawingSection.classList.contains('hidden')) {
+                drawingSection.classList.remove('hidden');
+            } else {
+                drawingSection.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>

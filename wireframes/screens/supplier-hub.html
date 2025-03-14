@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Hub - Supplier Hub</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="flex h-screen">
+        <!-- Sidebar Placeholder -->
+        <div class="w-64 bg-gray-800 text-white p-4">
+            <h1 class="text-xl font-bold mb-6">Control Hub</h1>
+            <ul>
+                <li class="mb-2"><a href="/wireframes/screens/orders.html" class="block py-2 px-4 hover:bg-gray-700 rounded">Orders</a></li>
+                <li class="mb-2"><a href="/wireframes/screens/new-order.html" class="block py-2 px-4 hover:bg-gray-700 rounded">New Order</a></li>
+                <li class="mb-2"><a href="/wireframes/screens/supplier-hub.html" class="block py-2 px-4 bg-blue-600 rounded">Supplier Hub</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 p-6 overflow-auto">
+            <div class="max-w-6xl mx-auto">
+                <!-- Header with Actions -->
+                <div class="flex justify-between items-center mb-6">
+                    <h1 class="text-2xl font-bold">Supplier Hub</h1>
+                    <div class="flex space-x-2">
+                        <button class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 focus:outline-none flex items-center">
+                            <svg class="h-4 w-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path>
+                            </svg>
+                            Add Supplier
+                        </button>
+                        <button class="px-4 py-2 bg-white border border-gray-300 rounded text-gray-700 hover:bg-gray-50 focus:outline-none flex items-center">
+                            <svg class="h-4 w-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" clip-rule="evenodd"></path>
+                            </svg>
+                            Filter
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Search and Filter Bar -->
+                <div class="bg-white p-4 rounded-lg shadow-sm mb-6">
+                    <div class="flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-4">
+                        <div class="flex-1">
+                            <div class="relative">
+                                <input type="text" placeholder="Search suppliers..." class="w-full border border-gray-300 rounded pl-10 py-2 focus:outline-none focus:border-blue-500">
+                                <svg class="h-5 w-5 text-gray-400 absolute left-3 top-2.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2">
+                            <select class="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500">
+                                <option>All Capabilities</option>
+                                <option>CNC Machining</option>
+                                <option>Sheet Metal</option>
+                                <option>Injection Molding</option>
+                                <option>3D Printing</option>
+                                <option>Surface Finishing</option>
+                            </select>
+                            <select class="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500">
+                                <option>All Materials</option>
+                                <option>Metals</option>
+                                <option>Plastics</option>
+                                <option>Composites</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tab Navigation -->
+                <div class="border-b border-gray-200 mb-6">
+                    <nav class="flex space-x-8">
+                        <button class="border-b-2 border-blue-500 text-blue-600 px-1 py-3 text-sm font-medium">All Suppliers (28)</button>
+                        <button class="border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 px-1 py-3 text-sm font-medium">Preferred (12)</button>
+                        <button class="border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 px-1 py-3 text-sm font-medium">Recently Used (8)</button>
+                    </nav>
+                </div>
+                
+                <!-- Suppliers Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                    <!-- Supplier Card 1 -->
+                    <div class="bg-white rounded-lg shadow overflow-hidden hover:shadow-md transition-shadow">
+                        <div class="p-5 border-b">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-900">PrecisionMachine Co.</h3>
+                                    <p class="text-sm text-gray-500">Chicago, IL</p>
+                                </div>
+                                <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Preferred</span>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <div class="mb-4">
+                                <h4 class="text-sm font-medium text-gray-500 mb-2">Capabilities</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">CNC Machining</span>
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Milling</span>
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Turning</span>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <h4 class="text-sm font-medium text-gray-500 mb-2">Materials</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">Aluminum</span>
+                                    <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">Steel</span>
+                                    <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">Titanium</span>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-2 text-sm mb-4">
+                                <div>
+                                    <span class="text-gray-500">Quality Score:</span>
+                                    <span class="font-medium text-gray-900">4.8/5</span>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500">On-time Rate:</span>
+                                    <span class="font-medium text-gray-900">98%</span>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500">Orders:</span>
+                                    <span class="font-medium text-gray-900">32</span>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500">Last Order:</span>
+                                    <span class="font-medium text-gray-900">Feb 10</span>
+                                </div>
+                            </div>
+                            <div class="border-t pt-4 flex justify-between">
+                                <button class="text-blue-600 hover:text-blue-800 text-sm font-medium">View Profile</button>
+                                <button class="text-blue-600 hover:text-blue-800 text-sm font-medium">Request Quote</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Supplier Card 2 -->
+                    <div class="bg-white rounded-lg shadow overflow-hidden hover:shadow-md transition-shadow">
+                        <div class="p-5 border-b">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-900">MetalWorks Inc.</h3>
+                                    <p class="text-sm text-gray-500">Detroit, MI</p>
+                                </div>
+                                <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Preferred</span>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <div class="mb-4">
+                                <h4 class="text-sm font-medium text-gray-500 mb-2">Capabilities</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">CNC Machining</span>
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Sheet Metal</span>
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Welding</span>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <h4 class="text-sm font-medium text-gray-500 mb-2">Materials</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">All Metals</span>
+                                    <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">Stainless Steel</span>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-2 text-sm mb-4">
+                                <div>
+                                    <span class="text-gray-500">Quality Score:</span>
+                                    <span class="font-medium text-gray-900">4.6/5</span>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500">On-time Rate:</span>
+                                    <span class="font-medium text-gray-900">95%</span>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500">Orders:</span>
+                                    <span class="font-medium text-gray-900">54</span>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500">Last Order:</span>
+                                    <span class="font-medium text-gray-900">Jan 23</span>
+                                </div>
+                            </div>
+                            <div class="border-t pt-4 flex justify-between">
+                                <button class="text-blue-600 hover:text-blue-800 text-sm font-medium">View Profile</button>
+                                <button class="text-blue-600 hover:text-blue-800 text-sm font-medium">Request Quote</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Supplier Card 3 -->
+                    <div class="bg-white rounded-lg shadow overflow-hidden hover:shadow-md transition-shadow">
+                        <div class="p-5 border-b">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-900">TechForm Solutions</h3>
+                                    <p class="text-sm text-gray-500">Austin, TX</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <div class="mb-4">
+                                <h4 class="text-sm font-medium text-gray-500 mb-2">Capabilities</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Injection Molding</span>
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">CNC Machining</span>
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Vacuum Forming</span>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <h4 class="text-sm font-medium text-gray-500 mb-2">Materials</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">ABS</span>
+                                    <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">POM/Delrin</span>
+                                    <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">PEEK</span>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-2 text-sm mb-4">
+                                <div>
+                                    <span class="text-gray-500">Quality Score:</span>
+                                    <span class="font-medium text-gray-900">4.9/5</span>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500">On-time Rate:</span>
+                                    <span class="font-medium text-gray-900">99%</span>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500">Orders:</span>
+                                    <span class="font-medium text-gray-900">18</span>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500">Last Order:</span>
+                                    <span class="font-medium text-gray-900">Feb 15</span>
+                                </div>
+                            </div>
+                            <div class="border-t pt-4 flex justify-between">
+                                <button class="text-blue-600 hover:text-blue-800 text-sm font-medium">View Profile</button>
+                                <button class="text-blue-600 hover:text-blue-800 text-sm font-medium">Request Quote</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Supplier Card 4 -->
+                    <div class="bg-white rounded-lg shadow overflow-hidden hover:shadow-md transition-shadow">
+                        <div class="p-5 border-b">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-900">Advanced Machining Solutions</h3>
+                                    <p class="text-sm text-gray-500">Denver, CO</p>
+                                </div>
+                                <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Preferred</span>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <div class="mb-4">
+                                <h4 class="text-sm font-medium text-gray-500 mb-2">Capabilities</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">5-Axis CNC</span>
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Swiss Turning</span>
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">EDM</span>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <h4 class="text-sm font-medium text-gray-500 mb-2">Materials</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">Aluminum</span>
+                                    <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">Titanium</span>
+                                    <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">Inconel</span>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-2 text-sm mb-4">
+                                <div>
+                                    <span class="text-gray-500">Quality Score:</span>
+                                    <span class="font-medium text-gray-900">4.9/5</span>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500">On-time Rate:</span>
+                                    <span class="font-medium text-gray-900">97%</span>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500">Orders:</span>
+                                    <span class="font-medium text-gray-900">26</span>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500">Last Order:</span>
+                                    <span class="font-medium text-gray-900">Jan 5</span>
+                                </div>
+                            </div>
+                            <div class="border-t pt-4 flex justify-between">
+                                <button class="text-blue-600 hover:text-blue-800 text-sm font-medium">View Profile</button>
+                                <button class="text-blue-600 hover:text-blue-800 text-sm font-medium">Request Quote</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Supplier Card 5 -->
+                    <div class="bg-white rounded-lg shadow overflow-hidden hover:shadow-md transition-shadow">
+                        <div class="p-5 border-b">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-900">QuickParts Manufacturing</h3>
+                                    <p class="text-sm text-gray-500">Phoenix, AZ</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <div class="mb-4">
+                                <h4 class="text-sm font-medium text-gray-500 mb-2">Capabilities</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">CNC Machining</span>
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">3D Printing</span>
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Surface Finishing</span>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <h4 class="text-sm font-medium text-gray-500 mb-2">Materials</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">Aluminum</span>
+                                    <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">Plastics</span>
+                                    <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">Steel</span>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-2 text-sm mb-4">
+                                <div>
+                                    <span class="text-gray-500">Quality Score:</span>
+                                    <span class="font-medium text-gray-900">4.5/5</span>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500">On-time Rate:</span>
+                                    <span class="font-medium text-gray-900">92%</span>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500">Orders:</span>
+                                    <span class="font-medium text-gray-900">14</span>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500">Last Order:</span>
+                                    <span class="font-medium text-gray-900">Dec 18</span>
+                                </div>
+                            </div>
+                            <div class="border-t pt-4 flex justify-between">
+                                <button class="text-blue-600 hover:text-blue-800 text-sm font-medium">View Profile</button>
+                                <button class="text-blue-600 hover:text-blue-800 text-sm font-medium">Request Quote</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Supplier Card 6 -->
+                    <div class="bg-white rounded-lg shadow overflow-hidden hover:shadow-md transition-shadow">
+                        <div class="p-5 border-b">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-900">Precision Prototype</h3>
+                                    <p class="text-sm text-gray-500">San Jose, CA</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <div class="mb-4">
+                                <h4 class="text-sm font-medium text-gray-500 mb-2">Capabilities</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Rapid Prototyping</span>
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">SLA/SLS 3D Printing</span>
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">CNC</span>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <h4 class="text-sm font-medium text-gray-500 mb-2">Materials</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">Nylon</span>
+                                    <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">Resins</span>
+                                    <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">Aluminum</span>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-2 text-sm mb-4">
+                                <div>
+                                    <span class="text-gray-500">Quality Score:</span>
+                                    <span class="font-medium text-gray-900">4.7/5</span>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500">On-time Rate:</span>
+                                    <span class="font-medium text-gray-900">96%</span>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500">Orders:</span>
+                                    <span class="font-medium text-gray-900">29</span>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500">Last Order:</span>
+                                    <span class="font-medium text-gray-900">Feb 8</span>
+                                </div>
+                            </div>
+                            <div class="border-t pt-4 flex justify-between">
+                                <button class="text-blue-600 hover:text-blue-800 text-sm font-medium">View Profile</button>
+                                <button class="text-blue-600 hover:text-blue-800 text-sm font-medium">Request Quote</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pagination -->
+                <div class="flex items-center justify-between">
+                    <div class="flex-1 flex justify-between sm:hidden">
+                        <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                            Previous
+                        </a>
+                        <a href="#" class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                            Next
+                        </a>
+                    </div>
+                    <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+                        <div>
+                            <p class="text-sm text-gray-700">
+                                Showing <span class="font-medium">1</span> to <span class="font-medium">6</span> of <span class="font-medium">28</span> results
+                            </p>
+                        </div>
+                        <div>
+                            <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                                <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                                    <span class="sr-only">Previous</span>
+                                    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                    </svg>
+                                </a>
+                                <a href="#" aria-current="page" class="z-10 bg-blue-50 border-blue-500 text-blue-600 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                                    1
+                                </a>
+                                <a href="#" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                                    2
+                                </a>
+                                <a href="#" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                                    3
+                                </a>
+                                <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                                    <span class="sr-only">Next</span>
+                                    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                                    </svg>
+                                </a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

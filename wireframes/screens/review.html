@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Hub - Review Order</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="flex h-screen">
+        <!-- Sidebar Placeholder -->
+        <div class="w-64 bg-gray-800 text-white p-4">
+            <h1 class="text-xl font-bold mb-6">Control Hub</h1>
+            <ul>
+                <li class="mb-2"><a href="/wireframes/screens/orders.html" class="block py-2 px-4 hover:bg-gray-700 rounded">Orders</a></li>
+                <li class="mb-2"><a href="/wireframes/screens/new-order.html" class="block py-2 px-4 bg-blue-600 rounded">New Order</a></li>
+                <li class="mb-2"><a href="/wireframes/screens/supplier-hub.html" class="block py-2 px-4 hover:bg-gray-700 rounded">Supplier Hub</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 p-6 overflow-auto">
+            <div class="max-w-5xl mx-auto bg-white shadow-md rounded-lg overflow-hidden">
+                <!-- Progress Steps -->
+                <div class="bg-gray-50 border-b p-4">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center">
+                            <div class="flex flex-col items-center">
+                                <div class="w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center font-bold">✓</div>
+                                <span class="text-sm mt-1">Basic Info</span>
+                            </div>
+                            <div class="h-1 w-12 bg-green-600 mx-2"></div>
+                            <div class="flex flex-col items-center">
+                                <div class="w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center font-bold">✓</div>
+                                <span class="text-sm mt-1">Requirements</span>
+                            </div>
+                            <div class="h-1 w-12 bg-green-600 mx-2"></div>
+                            <div class="flex flex-col items-center">
+                                <div class="w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center font-bold">✓</div>
+                                <span class="text-sm mt-1">Supplier</span>
+                            </div>
+                            <div class="h-1 w-12 bg-blue-600 mx-2"></div>
+                            <div class="flex flex-col items-center">
+                                <div class="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">4</div>
+                                <span class="text-sm mt-1">Review</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Content -->
+                <div class="p-6">
+                    <h1 class="text-2xl font-bold mb-6">Review Order</h1>
+                    
+                    <!-- Order Summary -->
+                    <div class="mb-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-xl font-semibold">Order Summary</h2>
+                            <button class="text-sm text-blue-600 hover:text-blue-800">Edit</button>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <h3 class="text-sm text-gray-500">Project Name</h3>
+                                    <p class="font-medium">Acme Robotics Controller Housing</p>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm text-gray-500">Customer</h3>
+                                    <p class="font-medium">Acme Corp</p>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <h3 class="text-sm text-gray-500">Industry</h3>
+                                    <p class="font-medium">Robotics</p>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm text-gray-500">Design Phase</h3>
+                                    <p class="font-medium">Early Production</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h3 class="text-sm text-gray-500">Part Use / Design Intent</h3>
+                                <p class="font-medium">Protective housing for robotic arm controller. Must be durable and provide EMI shielding.</p>
+                            </div>
+                            
+                            <div>
+                                <h3 class="text-sm text-gray-500">Material Flexibility</h3>
+                                <p class="font-medium">Moderate - Similar materials acceptable</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Compliance & Legal -->
+                    <div class="mb-8 border-t pt-4">
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-xl font-semibold">Compliance & Legal</h2>
+                            <button class="text-sm text-blue-600 hover:text-blue-800">Edit</button>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span>Non-circumvention agreement required</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span>MP profile required</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span>Export Control: None</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Financial Terms -->
+                    <div class="mb-8 border-t pt-4">
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-xl font-semibold">Financial Terms</h2>
+                            <button class="text-sm text-blue-600 hover:text-blue-800">Edit</button>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <h3 class="text-sm text-gray-500">Payment Terms</h3>
+                                    <p class="font-medium">Net 30</p>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm text-gray-500">Downpayment</h3>
+                                    <p class="font-medium">25%</p>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm text-gray-500">Fixed Material Pricing</h3>
+                                    <p class="font-medium">Yes</p>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm text-gray-500">Sample Costs</h3>
+                                    <p class="font-medium">Standard</p>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm text-gray-500">Fixed Pricing Period</h3>
+                                    <p class="font-medium">6 months</p>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm text-gray-500">Production Termination Clause</h3>
+                                    <p class="font-medium">Yes</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Line Items -->
+                    <div class="mb-8 border-t pt-4">
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-xl font-semibold">Line Items</h2>
+                            <button class="text-sm text-blue-600 hover:text-blue-800">Edit</button>
+                        </div>
+                        
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full bg-white border">
+                                <thead>
+                                    <tr class="bg-gray-100">
+                                        <th class="py-2 px-4 border-b text-left text-sm font-medium text-gray-700">Part Name</th>
+                                        <th class="py-2 px-4 border-b text-left text-sm font-medium text-gray-700">Material</th>
+                                        <th class="py-2 px-4 border-b text-left text-sm font-medium text-gray-700">Process</th>
+                                        <th class="py-2 px-4 border-b text-left text-sm font-medium text-gray-700">Quantity</th>
+                                        <th class="py-2 px-4 border-b text-left text-sm font-medium text-gray-700">Delivery Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="py-2 px-4 border-b text-sm">Controller Housing Top</td>
+                                        <td class="py-2 px-4 border-b text-sm">Aluminum 6061</td>
+                                        <td class="py-2 px-4 border-b text-sm">CNC Machining</td>
+                                        <td class="py-2 px-4 border-b text-sm">50</td>
+                                        <td class="py-2 px-4 border-b text-sm">Apr 15, 2025</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-4 border-b text-sm">Controller Housing Bottom</td>
+                                        <td class="py-2 px-4 border-b text-sm">Aluminum 6061</td>
+                                        <td class="py-2 px-4 border-b text-sm">CNC Machining</td>
+                                        <td class="py-2 px-4 border-b text-sm">50</td>
+                                        <td class="py-2 px-4 border-b text-sm">Apr 15, 2025</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-4 border-b text-sm">Connector Plate</td>
+                                        <td class="py-2 px-4 border-b text-sm">Stainless Steel 304</td>
+                                        <td class="py-2 px-4 border-b text-sm">CNC Machining</td>
+                                        <td class="py-2 px-4 border-b text-sm">50</td>
+                                        <td class="py-2 px-4 border-b text-sm">Apr 15, 2025</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- Manufacturing Requirements -->
+                    <div class="mb-8 border-t pt-4">
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-xl font-semibold">Manufacturing Requirements</h2>
+                            <button class="text-sm text-blue-600 hover:text-blue-800">Edit</button>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h3 class="font-medium mb-2">Documentation Requirements</h3>
+                            <ul class="space-y-1 mb-4">
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span>Design Record</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span>Process Flow Diagram</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span>Control Plan</span>
+                                </li>
+                            </ul>
+                            
+                            <h3 class="font-medium mb-2">Quality Requirements</h3>
+                            <ul class="space-y-1 mb-4">
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span>FAIR (First Article Inspection Report)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span>Detailed measurement plan</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span>Appearance Approval Report</span>
+                                </li>
+                            </ul>
+                            
+                            <h3 class="font-medium mb-2">Shipping & Logistics</h3>
+                            <ul class="space-y-1">
+                                <li class="flex items-start">
+                                    <span class="font-medium text-gray-700 mr-2">Shipping Method:</span>
+                                    <span>Standard DHL Express</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="font-medium text-gray-700 mr-2">Packaging:</span>
+                                    <span>ESD packaging required</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="font-medium text-gray-700 mr-2">Delivery Schedule:</span>
+                                    <span>All at once</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Selected Suppliers -->
+                    <div class="mb-8 border-t pt-4">
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-xl font-semibold">Selected Suppliers</h2>
+                            <button class="text-sm text-blue-600 hover:text-blue-800">Edit</button>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <div class="mb-4 border-b pb-4">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="font-medium">PrecisionMachine Co.</h3>
+                                    <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">93% Match</span>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-2">Chicago, IL • CNC Machining Specialist</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Aluminum</span>
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Steel</span>
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Tight Tolerances</span>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="font-medium">MetalWorks Inc.</h3>
+                                    <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">87% Match</span>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-2">Detroit, MI • Multi-process Manufacturing</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">All Metals</span>
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">CNC + Sheet Metal</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quote Request Details -->
+                    <div class="mb-8 border-t pt-4">
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-xl font-semibold">Quote Request Details</h2>
+                            <button class="text-sm text-blue-600 hover:text-blue-800">Edit</button>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <h3 class="text-sm text-gray-500">Request Type</h3>
+                                    <p class="font-medium">Estimate Only</p>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm text-gray-500">Response Deadline</h3>
+                                    <p class="font-medium">Mar 25, 2025</p>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm text-gray-500">Target Production Date</h3>
+                                    <p class="font-medium">Apr 10, 2025</p>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm text-gray-500">NDA Required</h3>
+                                    <p class="font-medium">Yes - Standard NDA (1 year)</p>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h3 class="text-sm text-gray-500">Additional Instructions</h3>
+                                <p class="font-medium">Please include DFM feedback on the connector plate design.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Submitted Files -->
+                    <div class="mb-8 border-t pt-4">
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-xl font-semibold">Attached Files</h2>
+                            <button class="text-sm text-blue-600 hover:text-blue-800">Edit</button>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <ul class="space-y-2">
+                                <li class="flex items-center">
+                                    <svg class="h-5 w-5 text-gray-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span>Controller_Housing_Top.STEP</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="h-5 w-5 text-gray-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span>Controller_Housing_Bottom.STEP</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="h-5 w-5 text-gray-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span>Connector_Plate.STEP</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="h-5 w-5 text-gray-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span>Assembly_Drawing.PDF</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="h-5 w-5 text-gray-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span>Technical_Specifications.PDF</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Final Submission -->
+                    <div class="mb-8 border-t pt-4">
+                        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                            <div class="flex items-start">
+                                <svg class="h-5 w-5 text-blue-500 mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+                                </svg>
+                                <div>
+                                    <p class="text-sm text-blue-800 font-medium mb-1">Ready to Submit</p>
+                                    <p class="text-sm text-blue-800">
+                                        This order will be submitted to the selected suppliers for quotation. You will be notified when suppliers respond with their quotes or feedback.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center mb-4">
+                            <input type="checkbox" id="approvalCheck" class="mr-2">
+                            <label for="approvalCheck" class="text-gray-700">I confirm that all information is correct and ready for submission</label>
+                        </div>
+                        
+                        <div class="flex items-center mb-4">
+                            <input type="checkbox" id="termsCheck" class="mr-2">
+                            <label for="termsCheck" class="text-gray-700">I agree to the terms and conditions</label>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation Buttons -->
+                    <div class="flex justify-between items-center mt-8 pt-4 border-t">
+                        <a href="/wireframes/screens/supplier.html" class="px-6 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400 focus:outline-none">Back to Supplier</a>
+                        <a href="/wireframes/screens/orders.html" class="px-6 py-2 bg-green-600 text-white rounded hover:bg-green-700 focus:outline-none">Submit Order</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

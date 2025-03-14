@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Hub - Order Requirements</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="flex h-screen">
+        <!-- Sidebar Placeholder -->
+        <div class="w-64 bg-gray-800 text-white p-4">
+            <h1 class="text-xl font-bold mb-6">Control Hub</h1>
+            <ul>
+                <li class="mb-2"><a href="/wireframes/screens/orders.html" class="block py-2 px-4 hover:bg-gray-700 rounded">Orders</a></li>
+                <li class="mb-2"><a href="/wireframes/screens/new-order.html" class="block py-2 px-4 bg-blue-600 rounded">New Order</a></li>
+                <li class="mb-2"><a href="/wireframes/screens/supplier-hub.html" class="block py-2 px-4 hover:bg-gray-700 rounded">Supplier Hub</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 p-6 overflow-auto">
+            <div class="max-w-5xl mx-auto bg-white shadow-md rounded-lg overflow-hidden">
+                <!-- Progress Steps -->
+                <div class="bg-gray-50 border-b p-4">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center">
+                            <div class="flex flex-col items-center">
+                                <div class="w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center font-bold">✓</div>
+                                <span class="text-sm mt-1">Basic Info</span>
+                            </div>
+                            <div class="h-1 w-12 bg-blue-600 mx-2"></div>
+                            <div class="flex flex-col items-center">
+                                <div class="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">2</div>
+                                <span class="text-sm mt-1">Requirements</span>
+                            </div>
+                            <div class="h-1 w-12 bg-gray-300 mx-2"></div>
+                            <div class="flex flex-col items-center">
+                                <div class="w-8 h-8 bg-gray-300 text-white rounded-full flex items-center justify-center font-bold">3</div>
+                                <span class="text-sm mt-1">Supplier</span>
+                            </div>
+                            <div class="h-1 w-12 bg-gray-300 mx-2"></div>
+                            <div class="flex flex-col items-center">
+                                <div class="w-8 h-8 bg-gray-300 text-white rounded-full flex items-center justify-center font-bold">4</div>
+                                <span class="text-sm mt-1">Review</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Content -->
+                <div class="p-6">
+                    <h1 class="text-2xl font-bold mb-6">Manufacturing Requirements</h1>
+                    
+                    <!-- Step 2: Manufacturing (Collapsible) -->
+                    <div class="mb-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-xl font-semibold">Manufacturing Planning</h2>
+                            <button type="button" class="text-blue-600 hover:text-blue-800" onclick="toggleSection('manufacturingCollapse')">
+                                <span id="manufacturingCollapseIcon">−</span>
+                            </button>
+                        </div>
+                        <div id="manufacturingCollapse" class="transition-all duration-200">
+                            <div class="grid grid-cols-1 gap-4 mb-4">
+                                <div>
+                                    <div class="flex items-start mb-2">
+                                        <input type="checkbox" id="designRecord" class="mt-1">
+                                        <label for="designRecord" class="ml-2 block text-gray-700 font-medium">Design Record Required</label>
+                                    </div>
+                                    <div class="pl-6 text-sm text-gray-600 mb-4">
+                                        Master CAD, Bubble drawings, Revision controls - Defines the 'nominal' requirements of the parts
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <div class="flex items-start mb-2">
+                                        <input type="checkbox" id="processFlow" class="mt-1">
+                                        <label for="processFlow" class="ml-2 block text-gray-700 font-medium">Process Flow Diagram Required</label>
+                                    </div>
+                                    <div class="pl-6 text-sm text-gray-600 mb-4">
+                                        A flow diagram where each process step is defined. Expected to be completed before production starts.
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <div class="flex items-start mb-2">
+                                        <input type="checkbox" id="processFMEA" class="mt-1">
+                                        <label for="processFMEA" class="ml-2 block text-gray-700 font-medium">Process FMEA Required</label>
+                                    </div>
+                                    <div class="pl-6 text-sm text-gray-600 mb-4">
+                                        Similar to design FMEA but for process steps. The aim is to ensure all risks are identified and necessary actions are taken.
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <div class="flex items-start mb-2">
+                                        <input type="checkbox" id="controlPlan" class="mt-1">
+                                        <label for="controlPlan" class="ml-2 block text-gray-700 font-medium">Control Plan Required</label>
+                                    </div>
+                                    <div class="pl-6 text-sm text-gray-600 mb-4">
+                                        Based on the PFMEA, identifies what needs to be inspected, at what frequency and with what methods.
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-gray-700 mb-1">Post-Processing Considerations</label>
+                                    <textarea class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500" rows="2" placeholder="Specify outsourcing options and post-processing requirements"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Design for Manufacturability (Collapsible) -->
+                    <div class="mb-8 border-t pt-4">
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-xl font-semibold">Design for Manufacturability</h2>
+                            <button type="button" class="text-blue-600 hover:text-blue-800" onclick="toggleSection('dfmCollapse')">
+                                <span id="dfmCollapseIcon">+</span>
+                            </button>
+                        </div>
+                        <div id="dfmCollapse" class="hidden transition-all duration-200">
+                            <div class="mb-4">
+                                <h3 class="font-medium text-gray-700 mb-2">Material & Geometry Considerations</h3>
+                                <div class="bg-gray-50 p-3 rounded mb-3 border border-gray-200">
+                                    <div class="flex items-start mb-2">
+                                        <input type="checkbox" id="materialMachinability" class="mt-1">
+                                        <label for="materialMachinability" class="ml-2 block text-gray-700">Confirm material is machinable with available tools</label>
+                                    </div>
+                                    <div class="flex items-start mb-2">
+                                        <input type="checkbox" id="toolWear" class="mt-1">
+                                        <label for="toolWear" class="ml-2 block text-gray-700">Need plan for controlling tool wear over time</label>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <input type="checkbox" id="geometryRisks" class="mt-1">
+                                        <label for="geometryRisks" class="ml-2 block text-gray-700">Evaluate geometry for risks (chatter, deflection, tool access)</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h3 class="font-medium text-gray-700 mb-2">Machining & Surface Finish Compatibility</h3>
+                                <div class="bg-gray-50 p-3 rounded mb-3 border border-gray-200">
+                                    <div class="flex items-start mb-2">
+                                        <input type="checkbox" id="surfaceFinish" class="mt-1">
+                                        <label for="surfaceFinish" class="ml-2 block text-gray-700">Machining tolerances planned with final surface finish in mind</label>
+                                    </div>
+                                    <div class="flex items-start mb-2">
+                                        <input type="checkbox" id="postMachining" class="mt-1">
+                                        <label for="postMachining" class="ml-2 block text-gray-700">Post-machining processes may affect dimensional accuracy</label>
+                                    </div>
+                                    <div class="flex items-start mb-2">
+                                        <input type="checkbox" id="visualRequirements" class="mt-1">
+                                        <label for="visualRequirements" class="ml-2 block text-gray-700">Visual requirements or special coatings needed</label>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <input type="checkbox" id="stressRelief" class="mt-1">
+                                        <label for="stressRelief" class="ml-2 block text-gray-700">Stress-relief operations required before finishing</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h3 class="font-medium text-gray-700 mb-2">GD&T and Machining Strategy</h3>
+                                <div class="bg-gray-50 p-3 rounded mb-3 border border-gray-200">
+                                    <div class="flex items-start mb-2">
+                                        <input type="checkbox" id="gdtFeasibility" class="mt-1">
+                                        <label for="gdtFeasibility" class="ml-2 block text-gray-700">GD&T requirements analyzed for feasibility</label>
+                                    </div>
+                                    <div class="flex items-start mb-2">
+                                        <input type="checkbox" id="multipleOps" class="mt-1">
+                                        <label for="multipleOps" class="ml-2 block text-gray-700">Multiple operations needed to meet tolerances</label>
+                                    </div>
+                                    <div class="flex items-start mb-2">
+                                        <input type="checkbox" id="fixtures" class="mt-1">
+                                        <label for="fixtures" class="ml-2 block text-gray-700">Custom fixtures or jigs needed for part stability</label>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <input type="checkbox" id="datumStrategy" class="mt-1">
+                                        <label for="datumStrategy" class="ml-2 block text-gray-700">Datum strategy aligned with machining sequence</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h3 class="font-medium text-gray-700 mb-2">Additional Manufacturing Considerations</h3>
+                                <textarea class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500" rows="3" placeholder="Add any additional DFM concerns or requirements"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Tooling & Fixtures (Collapsible) -->
+                    <div class="mb-8 border-t pt-4">
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-xl font-semibold">Tooling, Fixtures & Workholding</h2>
+                            <button type="button" class="text-blue-600 hover:text-blue-800" onclick="toggleSection('toolingCollapse')">
+                                <span id="toolingCollapseIcon">+</span>
+                            </button>
+                        </div>
+                        <div id="toolingCollapse" class="hidden transition-all duration-200">
+                            <div class="bg-gray-50 p-3 rounded mb-4 border border-gray-200">
+                                <div class="flex items-start mb-2">
+                                    <input type="checkbox" id="cuttingTools" class="mt-1">
+                                    <label for="cuttingTools" class="ml-2 block text-gray-700">Special cutting tools, inserts, or tool holders required</label>
+                                </div>
+                                <div class="flex items-start mb-2">
+                                    <input type="checkbox" id="tighterTolerances" class="mt-1">
+                                    <label for="tighterTolerances" class="ml-2 block text-gray-700">Special tool holders needed for tight tolerances</label>
+                                </div>
+                                <div class="flex items-start mb-2">
+                                    <input type="checkbox" id="cuttingSpeeds" class="mt-1">
+                                    <label for="cuttingSpeeds" class="ml-2 block text-gray-700">Custom cutting speeds and feeds required</label>
+                                </div>
+                                <div class="flex items-start mb-2">
+                                    <input type="checkbox" id="customFixtures" class="mt-1">
+                                    <label for="customFixtures" class="ml-2 block text-gray-700">Custom fixtures needed for non-standard geometries</label>
+                                </div>
+                                <div class="flex items-start">
+                                    <input type="checkbox" id="additionalClamps" class="mt-1">
+                                    <label for="additionalClamps" class="ml-2 block text-gray-700">Additional clamps/supports needed to reduce deflection</label>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 mb-1">Special Tooling Requirements</label>
+                                <textarea class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500" rows="2"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Quality Requirements (Collapsible) -->
+                    <div class="mb-8 border-t pt-4">
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-xl font-semibold">Quality Requirements</h2>
+                            <button type="button" class="text-blue-600 hover:text-blue-800" onclick="toggleSection('qualityCollapse')">
+                                <span id="qualityCollapseIcon">+</span>
+                            </button>
+                        </div>
+                        <div id="qualityCollapse" class="hidden transition-all duration-200">
+                            <div class="mb-4">
+                                <h3 class="font-medium text-gray-700 mb-2">Measurement & Inspection Strategy</h3>
+                                <div class="bg-gray-50 p-3 rounded mb-3 border border-gray-200">
+                                    <div class="flex items-start mb-2">
+                                        <input type="checkbox" id="measurementPlan" class="mt-1">
+                                        <label for="measurementPlan" class="ml-2 block text-gray-700">Detailed measurement plan for in-process and final inspections</label>
+                                    </div>
+                                    <div class="flex items-start mb-2">
+                                        <input type="checkbox" id="cmmRequired" class="mt-1">
+                                        <label for="cmmRequired" class="ml-2 block text-gray-700">CMM, laser scanning, or optical measurement required</label>
+                                    </div>
+                                    <div class="flex items-start mb-2">
+                                        <input type="checkbox" id="outsourcedInspection" class="mt-1">
+                                        <label for="outsourcedInspection" class="ml-2 block text-gray-700">Outsourced inspection services needed</label>
+                                    </div>
+                                    <div class="flex items-start mb-2">
+                                        <input type="checkbox" id="measurementComparison" class="mt-1">
+                                        <label for="measurementComparison" class="ml-2 block text-gray-700">Measurement comparison with end customer needed</label>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <input type="checkbox" id="constrainedConditions" class="mt-1">
+                                        <label for="constrainedConditions" class="ml-2 block text-gray-700">Measurements under constrained conditions required</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h3 class="font-medium text-gray-700 mb-2">Inspection Equipment & Samples</h3>
+                                <div class="bg-gray-50 p-3 rounded mb-3 border border-gray-200">
+                                    <div class="flex items-start mb-2">
+                                        <input type="checkbox" id="calibrationReq" class="mt-1">
+                                        <label for="calibrationReq" class="ml-2 block text-gray-700">Calibrated measurement tools required</label>
+                                    </div>
+                                    <div class="flex items-start mb-2">
+                                        <input type="checkbox" id="gaugesRequired" class="mt-1">
+                                        <label for="gaugesRequired" class="ml-2 block text-gray-700">Custom gauges or checking aids required</label>
+                                    </div>
+                                    <div class="flex items-start mb-2">
+                                        <input type="checkbox" id="fairRequired" class="mt-1">
+                                        <label for="fairRequired" class="ml-2 block text-gray-700">FAIR (First Article Inspection Report) required</label>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <input type="checkbox" id="goldenSample" class="mt-1">
+                                        <label for="goldenSample" class="ml-2 block text-gray-700">'Golden Sample' parts to be kept as reference</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h3 class="font-medium text-gray-700 mb-2">Appearance & Surface Requirements</h3>
+                                <div class="bg-gray-50 p-3 rounded mb-3 border border-gray-200">
+                                    <div class="flex items-start mb-2">
+                                        <input type="checkbox" id="appearanceApproval" class="mt-1">
+                                        <label for="appearanceApproval" class="ml-2 block text-gray-700">Appearance Approval Report (AAR) required</label>
+                                    </div>
+                                    <div class="flex items-start mb-2">
+                                        <input type="checkbox" id="acceptableDefects" class="mt-1">
+                                        <label for="acceptableDefects" class="ml-2 block text-gray-700">Define acceptable cosmetic 'failures'</label>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <input type="checkbox" id="coatingTests" class="mt-1">
+                                        <label for="coatingTests" class="ml-2 block text-gray-700">Surface coating testing requirements</label>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-gray-700 mb-1">Cosmetic Requirements</label>
+                                    <textarea class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500" rows="2" placeholder="Describe acceptable scratches, marks, etc."></textarea>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 mb-1">Quality Documentation Requirements</label>
+                                <textarea class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500" rows="2" placeholder="List any special documentation requirements"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Logistics Requirements (Collapsible) -->
+                    <div class="mb-8 border-t pt-4">
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-xl font-semibold">Logistics & Shipping</h2>
+                            <button type="button" class="text-blue-600 hover:text-blue-800" onclick="toggleSection('logisticsCollapse')">
+                                <span id="logisticsCollapseIcon">+</span>
+                            </button>
+                        </div>
+                        <div id="logisticsCollapse" class="hidden transition-all duration-200">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <label class="block text-gray-700 mb-1">Batch Shipment Schedule</label>
+                                    <select class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500">
+                                        <option>Ship all at once</option>
+                                        <option>Weekly shipments</option>
+                                        <option>Monthly shipments</option>
+                                        <option>Custom schedule</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 mb-1">Ship Date Flexibility</label>
+                                    <select class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500">
+                                        <option>Strict deadlines</option>
+                                        <option>+/- 1 week</option>
+                                        <option>+/- 2 weeks</option>
+                                        <option>Flexible</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h3 class="font-medium text-gray-700 mb-2">Packaging Requirements</h3>
+                                <div class="bg-gray-50 p-3 rounded mb-3 border border-gray-200">
+                                    <div class="flex items-start mb-2">
+                                        <input type="checkbox" id="bagTag" class="mt-1">
+                                        <label for="bagTag" class="ml-2 block text-gray-700">Standard bag & tag packaging</label>
+                                    </div>
+                                    <div class="flex items-start mb-2">
+                                        <input type="checkbox" id="boxLabels" class="mt-1">
+                                        <label for="boxLabels" class="ml-2 block text-gray-700">Box content labels</label>
+                                    </div>
+                                    <div class="flex items-start mb-2">
+                                        <input type="checkbox" id="esdPackaging" class="mt-1">
+                                        <label for="esdPackaging" class="ml-2 block text-gray-700">ESD packaging or blister trays required</label>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <input type="checkbox" id="crateRequirement" class="mt-1">
+                                        <label for="crateRequirement" class="ml-2 block text-gray-700">Box + crate requirement</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <label class="block text-gray-700 mb-1">Shipping Method</label>
+                                    <select class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500">
+                                        <option>Standard DHL Express</option>
+                                        <option>Freight forwarding - Air</option>
+                                        <option>Freight forwarding - Sea</option>
+                                        <option>Customer pickup</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 mb-1">Storage Requirements</label>
+                                    <select class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500">
+                                        <option>No storage needed</option>
+                                        <option>Store at manufacturer</option>
+                                        <option>Store locally</option>
+                                        <option>Custom arrangement</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 mb-1">HTS Code (for international shipments)</label>
+                                <input type="text" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500" placeholder="Enter HTS code if applicable">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Reorder & Change Management (Collapsible) -->
+                    <div class="mb-8 border-t pt-4">
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-xl font-semibold">Change Management & Reorders</h2>
+                            <button type="button" class="text-blue-600 hover:text-blue-800" onclick="toggleSection('changeCollapse')">
+                                <span id="changeCollapseIcon">+</span>
+                            </button>
+                        </div>
+                        <div id="changeCollapse" class="hidden transition-all duration-200">
+                            <div class="bg-gray-50 p-3 rounded mb-4 border border-gray-200">
+                                <div class="flex items-start mb-2">
+                                    <input type="checkbox" id="changeRequests" class="mt-1">
+                                    <label for="changeRequests" class="ml-2 block text-gray-700">Formal change request process required</label>
+                                </div>
+                                <div class="flex items-start mb-2">
+                                    <input type="checkbox" id="changeApproval" class="mt-1">
+                                    <label for="changeApproval" class="ml-2 block text-gray-700">Changes require engineering approval</label>
+                                </div>
+                                <div class="flex items-start">
+                                    <input type="checkbox" id="revisedDocumentation" class="mt-1">
+                                    <label for="revisedDocumentation" class="ml-2 block text-gray-700">Revised technical documentation for each change</label>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 mb-1">Change Management Notes</label>
+                                <textarea class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500" rows="2" placeholder="Specify any special requirements for changes or reorders"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation Buttons -->
+                    <div class="flex justify-between items-center mt-8 pt-4 border-t">
+                        <a href="/wireframes/screens/new-order.html" class="px-6 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400 focus:outline-none">Back to Basic Info</a>
+                        <a href="/wireframes/screens/supplier.html" class="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 focus:outline-none">Continue to Supplier Selection</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            const iconSpan = document.getElementById(sectionId + 'Icon');
+            
+            if (section.classList.contains('hidden')) {
+                section.classList.remove('hidden');
+                iconSpan.textContent = '−';
+            } else {
+                section.classList.add('hidden');
+                iconSpan.textContent = '+';
+            }
+        }
+    </script>
+</body>
+</html>
